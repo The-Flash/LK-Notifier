@@ -83,3 +83,26 @@ async function testEmailAPI() {
 
 testEmailAPI().then(console.log).catch(console.log);
 ```
+
+## Sending Bulk Email
+```
+async function testBulkEmailAPI() {
+    try {
+        const response = await lkNotifier.post("send-bulk-email", {
+            recipients: ["absaugustineflash@gmail.com", "logickids@codewithflash.com"],
+            subject: "Please work",
+            body: "I hope this works. I'm tired"
+        }, {
+            params: {
+                key: API_KEY
+            }
+        })
+        console.log(response.data);
+    } catch(e) {
+        console.log(e);
+        console.log("Not working");
+    }
+}
+
+testBulkEmailAPI().then(console.log).catch(console.log);
+```
