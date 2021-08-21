@@ -28,3 +28,35 @@ async function testAPI() {
 
 testAPI().then(console.log).catch(console.log);
 ```
+
+## Sending Bulk SMS
+```
+const axios = require("axios").default;
+
+const API_KEY = "64e43732-5e41-4fdc-9855-4f48c15b96b1";
+const BASE_URL = "https://us-central1-lk-notifier.cloudfunctions.net/api";
+
+const lkNotifier = axios.create({
+    baseURL: BASE_URL
+});
+
+async function testAPI() {
+    try {
+        const response = await lkNotifier.post("send-bulk-sms", {
+            recipients: ["0553847137", "0509343841"],
+            body: "Seems to be working"
+        }, {
+            params: {
+                key: API_KEY
+            }
+        });
+        console.log(response.data);
+    } catch(e) {
+        console.log("Not working");
+    }
+}
+
+testAPI().then(console.log).catch(console.log);
+```
+
+Note that for bulk sms, its "recipients" - with an s.
