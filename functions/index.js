@@ -10,7 +10,7 @@ const SMSNOTIFY_API_KEY = functions.config().smsnotify.key;
 const SMSNOTIFY_SENDER_ID = functions.config().smsnotify.sender_id;
 const SMSNOTIFY_URL = "http://sms.smsnotifygh.com/smsapi";
 const API_KEY = functions.config().lknotifier.key;
-const FROM_EMAIL = "logickids@codewithflash.com";
+const FROM_EMAIL = "info@codewithflash.com";
 
 const app = express();
 

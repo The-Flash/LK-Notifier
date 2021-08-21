@@ -3,7 +3,7 @@
 ```
 const axios = require("axios").default;
 
-const API_KEY = "64e43732-5e41-4fdc-9855-4f48c15b96b1";
+const API_KEY = "API_KEY";
 const BASE_URL = "https://us-central1-lk-notifier.cloudfunctions.net/api";
 
 const lkNotifier = axios.create({
@@ -33,7 +33,7 @@ testAPI().then(console.log).catch(console.log);
 ```
 const axios = require("axios").default;
 
-const API_KEY = "64e43732-5e41-4fdc-9855-4f48c15b96b1";
+const API_KEY = "API_KEY";
 const BASE_URL = "https://us-central1-lk-notifier.cloudfunctions.net/api";
 
 const lkNotifier = axios.create({
@@ -60,3 +60,26 @@ testAPI().then(console.log).catch(console.log);
 ```
 
 Note that for bulk sms, its "recipients" - with an s.
+
+## Send Single Email
+```
+async function testEmailAPI() {
+    try {
+        const response = await lkNotifier.post("send-email", {
+            recipient: "absaugustineflash@gmail.com",
+            subject: "Please work",
+            body: "I hope this works. I'm tired"
+        }, {
+            params: {
+                key: API_KEY
+            }
+        })
+        console.log(response.data);
+    } catch(e) {
+        console.log(e);
+        console.log("Not working");
+    }
+}
+
+testEmailAPI().then(console.log).catch(console.log);
+```
